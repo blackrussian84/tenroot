@@ -25,6 +25,8 @@ deploy_service "nginx"
 MYIP=${MYIP:-$(curl -s ifconfig.me)}
 PROTO=${PROTO:-https}
 ENDPOINTS=(
+  "misp         : $PROTO://$MYIP/misp/"
+  "opencti      : $PROTO://$MYIP/opencti/"
   "cyberchef    : $PROTO://$MYIP/cyberchef/"
   "elk          : $PROTO://$MYIP/kibana/"
   "iris-web     : $PROTO://$MYIP:8443/"
@@ -34,8 +36,7 @@ ENDPOINTS=(
   "strelka      : $PROTO://$MYIP:8843/"
   "timesketch   : $PROTO://$MYIP/"
   "velociraptor : $PROTO://$MYIP/velociraptor"
-  "misp         : $PROTO://$MYIP/misp/"
-  "opencti      : $PROTO://$MYIP/opencti/"
+
 )
 print_green "All the docker services are deployed successfully."
 print_with_border "Access the services using below links"
